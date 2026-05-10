@@ -9,12 +9,12 @@ The goal of this project is to deploy a cloud-hosted Security Information and Ev
 * **Operating Systems:** Ubuntu Server 24.04 LTS (Cloud), Windows Server (Local)
 * **Networking & Security:** pfSense, Azure Network Security Groups (NSG), PowerShell
 
-## 🏗️ Architecture
+## Architecture
 The architecture consists of a local Windows Server sitting safely behind a pfSense virtual firewall. The Wazuh agent installed on the Windows Server communicates securely over the internet (WAN) to an Azure cloud instance running the Wazuh SIEM stack.
 
 *Note: The local network topology from previous builds was expanded to include this outbound WAN connection to Azure.*
 
-![Hybrid-Cloud Architecture Diagram](link-to-your-new-drawio-diagram.png)
+![Hybrid-Cloud Architecture Diagram](virtual-network-topology.png)
 
 ## Security Measures
 To ensure an enterprise-grade security posture, multiple layers of access control were implemented:
@@ -29,4 +29,4 @@ To validate the SIEM's ingestion and alerting capabilities, an attack was simula
 4. The Wazuh Cloud Dashboard successfully analyzed the logs and triggered a Level 10 High-Severity Alert for **"Multiple Windows Logon Failures."**
 
 ### Alert Dashboard
-![Wazuh Threat Hunt Alert](link-to-your-wazuh-alert-screenshot.png)
+![Wazuh Threat Hunt Alert](wazuh-login-fail.png)
