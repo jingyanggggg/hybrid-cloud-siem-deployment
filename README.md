@@ -17,7 +17,7 @@ The architecture consists of a local Windows Server sitting safely behind a pfSe
 ## Security Measures
 To ensure an enterprise-grade security posture, multiple layers of access control were implemented:
 * **Strict Egress Filtering (pfSense):** Configured the local pfSense firewall to drop all unknown outbound traffic. Outbound rules were explicitly created to allow only HTTPS (443), HTTP (80), DNS (53), and Wazuh agent communication (Ports 1514 & 1515).
-* **Network Security Groups (Azure):** Applied the principle of **Implicit Deny** on the cloud perimeter. Inbound rules on the Azure VM were strictly IP-whitelisted, meaning Ports 22 (SSH), 443 (Dashboard), 1514, and 1515 drop all packets that do not originate from the administrator's specific home public IP address.
+* **Network Security Groups (Azure):** Applied the principle of **Implicit Deny** on the cloud perimeter. Inbound rules on the Azure VM were strictly IP-whitelisted, meaning Ports 22 (SSH), 443 (Dashboard), 1514, and 1515 drop all packets that do not originate from the my home's public IP address.
 
 ## Proof of Concept: Threat Detection
 To validate the SIEM's ingestion and alerting capabilities, an attack was simulated on the local network:
